@@ -1,0 +1,5 @@
+pip freeze
+pip list
+pip show numpy
+https://pypi.org/search/?q=tesseract
+pip list --format=freeze > requirements.txt
