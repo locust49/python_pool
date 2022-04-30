@@ -1,5 +1,6 @@
 import string
 
+
 def text_analyzer(text=None, *args):
     """This function counts the number of upper characters, lower characters, \
 punctuation and spaces in a given text."""
@@ -28,7 +29,7 @@ punctuation and spaces in a given text."""
         elif character in string.punctuation:
             punctuation_count += 1
         elif character.isspace(): 
-            spaces_count+= 1
+            spaces_count += 1
 
     answer = f'The text contains {character_count} characters:\
                 - {upper_count} upper letters\
