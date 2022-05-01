@@ -4,7 +4,6 @@ import random
 
 def guess(secret_number):
     attempts = 0
-    secret_number = 4
     while 1377:
         attempts += 1
         choice = input('What\'s your guess between 1 and 99?\n>> ')
