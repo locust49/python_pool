@@ -5,7 +5,7 @@ def assertion_required_argument(argument):
 
 def assertion_input_error(argument):
     if argument == 'cooking_lvl':
-        return '\'cooking level\' must be in range [1, 5].'
+        return '\'cooking level\' must be of type int and in range [1, 5].'
     if argument == 'cooking_time':
         return '\'cooking_time\' must be a positive number (int).'
     if argument == 'ingredients':
@@ -20,11 +20,15 @@ class Recipe():
     def __init__(self, name=None, cooking_lvl=None, cooking_time=None,
                  ingredients=None, description=None, recipe_type=None):
         try:
-            assert name, assertion_required_argument('name')
-            assert cooking_lvl, assertion_required_argument('cooking_lvl')
-            assert cooking_time, assertion_required_argument('cooking_time')
-            assert ingredients, assertion_required_argument('ingredients')
-            assert recipe_type, assertion_required_argument('recipe_type')
+            assert name is not None, assertion_required_argument('name')
+            assert cooking_lvl is not None,                             \
+                   assertion_required_argument('cooking_lvl')
+            assert cooking_time is not None,                            \
+                   assertion_required_argument('cooking_time')
+            assert ingredients is not None and ingredients != [],       \
+                   assertion_required_argument('ingredients')
+            assert recipe_type is not None,                             \
+                   assertion_required_argument('recipe_type')
 
             assert cooking_lvl in range(1, 6),                          \
                    assertion_input_error('cooking_lvl')
