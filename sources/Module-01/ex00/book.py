@@ -27,7 +27,7 @@ class Book():
 
     def get_recipe_by_name(self, name):
         """Prints a recipe with the name \'name\' and returns the instance"""
-        
+
         recipe_found = False
         for type in self.recipes_list:
             for recipe in self.recipes_list[type]:
