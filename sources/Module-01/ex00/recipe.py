@@ -12,7 +12,7 @@ def assertion_input_error(argument):
         return '\'ingredients\' must be a list of strings.'
     if argument == 'recipe_type':
         return '\'recipe_type\' can only be \
-    \b\'starter\', \'lunch\' or \'dessert\''
+\'starter\', \'lunch\' or \'dessert\''
     return 'Invalid input'
 
 
