@@ -7,14 +7,14 @@ class Book():
                  name: str,
                  last_update=None,
                  creation_date=None,
-                 recipes_list={'starter': [],
-                               'lunch': [],
-                               'dessert': []}
+                 recipes_list=None
                  ):
         self.name = name
         self.last_update = datetime.now()
         self.creation_date = datetime.now()
-        self.recipes_list = recipes_list
+        self.recipes_list = {'starter': [],
+                             'lunch': [],
+                             'dessert': []}
         print('>> Book created.')
 
     def get_recipes_list(self):
