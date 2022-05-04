@@ -19,13 +19,29 @@ class Lannister(GotCharacter):
         self.is_alive = False
 
 
-class GracefordofHolyhall(Lannister):
+class GracefordofHolyhall(GotCharacter):
+    """The Graceford of Holygraph's class.. oups, Holyhall"""
+    def __init__(self, first_name=None, is_alive=True):
+        super().__init__(first_name=first_name, is_alive=is_alive)
+        self.family_name = 'The graceford of Holyhall'
+        self.house_words = 'Hear Me Roar!'
+
+    def print_house_words(self):
+        print(self.house_words)
+
+    def print_whoarewe(self):
+        print(f'I\'m {self.first_name} from {self.family_name}')
+
+    def die(self):
+        self.is_alive = False
+
+
+class ThisIsAJoke(Lannister):
     """An undying class"""
     def __init__(self, first_name=None, is_alive=True):
         super().__init__(first_name=first_name, is_alive=is_alive)
-        self.family_name = 'Graceford of Holyhall'
-        self.house_words = 'Work Her Will'
+        self.family_name = 'This is a joke'
+        self.house_words = 'We shall not die.'
 
     def die(self):
-        self.is_alive = True
-        print('GracefordofHolyhall don\'t die !!')
+        print('Nothing to see here. We don\'t die !!')
