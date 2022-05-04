@@ -37,7 +37,8 @@ class Book():
                     print(recipe.name)
                     return recipe
         if recipe_found is False:
-            print(f'Could\'nt find recipe of given name : \'{name}\'')
+            print(f'Could\'nt find recipe of given name : \'{name}\' in book \
+\'{self.name}\'')
             return None
 
     def draft(self, name):
