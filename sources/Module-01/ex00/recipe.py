@@ -55,3 +55,6 @@ Recipe cooking time\t:  {cooking_time}\n\
 Recipe ingredients\t:  {ingredients}\n\
 Recipe description\t:  {description}\n\
 Recipe recipe type\t:  {recipe_type}'.format(**self.__dict__)
+
+    def __repr__(self):
+        return f'<Object of type : {type(self)} at {hex(id(self))}>'
