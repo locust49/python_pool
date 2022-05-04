@@ -79,7 +79,9 @@ corresponding to the type \'{recipe_type}\'.'
         """Add a recipe to the book and update last_update"""
         try:
             assert type(recipe) == Recipe, 'recipe must be of type Recipe'
-        finally:
+        except TypeError:
+            return None
+        else:
             self.recipes_list[recipe.recipe_type].append(recipe)
             self.last_update = datetime.now()
             print('>> Recipe added to book.')
