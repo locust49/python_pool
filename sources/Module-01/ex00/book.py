@@ -15,6 +15,7 @@ class Book():
         self.last_update = datetime.now()
         self.creation_date = datetime.now()
         self.recipes_list = recipes_list
+        print('>> Book created.')
 
     def get_recipes_list(self):
         """Returns list of all recipes name groupped by type"""
@@ -80,6 +81,7 @@ corresponding to the type \'{recipe_type}\'.'
         finally:
             self.recipes_list[recipe.recipe_type].append(recipe)
             self.last_update = datetime.now()
+            print('>> Recipe added to book.')
 
     def __str__(self):
         return f'Book name\t\t:  {self.name}\n\
