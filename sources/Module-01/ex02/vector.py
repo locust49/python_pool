@@ -1,3 +1,15 @@
+def check_operations(vector_1, vector_2, operation):
+    if operation == '+':
+        assert type(vector_2) == type(vector_1), f"Operation {operation} \
+not supported between {type(vector_1)} and {type(vector_2)}"
+        assert vector_1.shape == vector_2.shape, f"Vectors must have same \
+dimentions {vector_1.shape} != {vector_2.shape}"
+    if operation == '*':
+        assert isinstance(vector_2, (int, float, complex)), \
+               f"Operation {operation} not supported between \
+{type(vector_1)} and {type(vector_2)}. Supports scalars only."
+
+
 class Vector:
     """Implementation of Vector class"""
     def __init__(self, values=None):
@@ -40,18 +52,30 @@ Elements must be of type int."
         return shape_
 
     # add : only vectors of same dimensions.
-    def __add__(self, other):
-        pass
+    def __add__(self, other: "Vector"):
+        check_operations(self, other, '+')
+        result = []
+        for i in range(self.shape[0]):
+            tmp = []
+            for j in range(self.shape[1]):
+                tmp.append(self.values[i][j] + other.values[i][j])
+            result.append(tmp)
+        return Vector(result)
 
-    def __radd__(self, other):
-        pass
+    def __radd__(self, other: "Vector"):
+        check_operations(self, other, '+')
+        return self.__add__(other)
 
     # sub : only vectors of same dimensions.
-    def __sub__(self, other):
-        pass
+    def __sub__(self, other: "Vector"):
+        check_operations(self, other, '+')
+        opposite_other = other.__mul__(-1)
+        return self.__add__(opposite_other)
 
-    def __rsub__(self, other):
-        pass
+    def __rsub__(self, other: "Vector"):
+        check_operations(self, other, '+')
+        opposite_other = other.__mul__(-1)
+        return self.__radd__(opposite_other)
 
     # div : only scalars.
     def __truediv__(self, other):
@@ -61,11 +85,19 @@ Elements must be of type int."
         pass
 
     # mul : only scalars.
-    def __truemul__(self, other):
-        pass
+    def __mul__(self, other):
+        check_operations(self, other, '*')
+        result = []
+        for i in range(self.shape[0]):
+            tmp = []
+            for j in range(self.shape[1]):
+                tmp.append(self.values[i][j] * other)
+            result.append(tmp)
+        return Vector(result)
 
-    def __rtruemul__(self, other):
-        pass
+    def __rmul__(self, other):
+        check_operations(self, other, '*')
+        return self.__mul__(other)
 
     def dot(self, other):
         # produce a dot product between two vectors of same shape
