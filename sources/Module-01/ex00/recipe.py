@@ -16,7 +16,7 @@ def assertion_input_error(argument):
     return 'Invalid input'
 
 
-class Recipe():
+class Recipe:
     def __init__(self, name=None, cooking_lvl=None, cooking_time=None,
                  ingredients=None, description=None, recipe_type=None):
         try:

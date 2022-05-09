@@ -2,7 +2,7 @@ from datetime import datetime
 from recipe import Recipe
 
 
-class Book():
+class Book:
     def __init__(self,
                  name: str,
                  last_update=None,
