@@ -3,8 +3,12 @@ class Vector:
     def __init__(self, values=None):
         assert type(values) in [list, int, tuple], self.__doc__
         if type(values) == int:
+            assert values >= 0, f"Invalid argument {values} must be positive."
             self.values = self.generate_vect_from_range(range_=(0, values))
         elif type(values) == tuple:
+            assert all(isinstance(value, int) for value in values), \
+                   f"Invalid element type in tuple: {values}. \
+Elements must be of type int."
             self.values = self.generate_vect_from_range(range_=values)
         elif type(values) == list:
             self.values = values
@@ -36,34 +40,34 @@ class Vector:
         return shape_
 
     # add : only vectors of same dimensions.
-    def __add__(self):
+    def __add__(self, other):
         pass
 
-    def __radd__(self):
+    def __radd__(self, other):
         pass
 
     # sub : only vectors of same dimensions.
-    def __sub__(self):
+    def __sub__(self, other):
         pass
 
-    def __rsub__(self):
+    def __rsub__(self, other):
         pass
 
     # div : only scalars.
-    def __truediv__(self):
+    def __truediv__(self, other):
         pass
 
-    def __rtruediv__(self):
+    def __rtruediv__(self, other):
         pass
 
     # mul : only scalars.
-    def __truediv__(self):
+    def __truemul__(self, other):
         pass
 
-    def __rtruediv__(self):
+    def __rtruemul__(self, other):
         pass
 
-    def dot(self):
+    def dot(self, other):
         # produce a dot product between two vectors of same shape
         pass
 
