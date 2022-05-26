@@ -1,4 +1,4 @@
-from time import time
+from time import sleep, time
 
 
 def ft_progress(listy):
@@ -14,3 +14,12 @@ def ft_progress(listy):
               .format(eta, percentage, bar, iteration + 1,
                       total, elapsed_iteration), end='\r')
         yield iteration
+
+
+listy = range(1000)
+ret = 0
+for elem in ft_progress(listy):
+    ret += (elem + 3) % 5
+    sleep(0.01)
+print()
+print(ret)

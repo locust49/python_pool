@@ -10,3 +10,5 @@ if __name__ == '__main__':
             print(arg[::-1].swapcase(), end='')
             if index < len_args - 1:
                 print(' ', end='')
+            else:
+                print('')

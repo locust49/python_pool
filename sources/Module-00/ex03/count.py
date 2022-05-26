@@ -22,18 +22,18 @@ punctuation and spaces in a given text."""
     print(text)
     character_count = len(text)
     for character in text:
-        if character.isupper(): 
+        if character.isupper():
             upper_count += 1
-        elif character.islower(): 
+        elif character.islower():
             lower_count += 1
         elif character in string.punctuation:
             punctuation_count += 1
-        elif character.isspace(): 
+        elif character.isspace():
             spaces_count += 1
 
-    answer = f'The text contains {character_count} characters:\
-                - {upper_count} upper letters\
-                - {lower_count} lower letters\
-                - {punctuation_count} punctuation marks\
+    answer = f'The text contains {character_count} characters:\n\
+                - {upper_count} upper letters\n\
+                - {lower_count} lower letters\n\
+                - {punctuation_count} punctuation marks\n\
                 - {spaces_count} spaces'
     print(answer)
